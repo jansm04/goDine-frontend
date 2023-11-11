@@ -1,21 +1,22 @@
-import { useState } from "react"
+import { useState, useMemo } from "react"
 
-import { useJsApiLoader, GoogleMap } from "@react-google-maps/api"
+import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps"
+
+// import { useJsApiLoader, GoogleMap } from "@react-google-maps/api"
 
 // components
 import RestaurantForm from "../components/RestaurantForm"
 
 const Home = () => {
 
+    const center = useMemo(() => ({ lat: 43.6532, lng: -79.3832 }), [])
     const [restaurants, setRestaurants] = useState(null)
-    const {isLoaded} = useJsApiLoader({
-        googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY
-    })
-    if (!isLoaded) {
-        console.log("Error: Google Maps API key has not been loaded.")
-        return
-    }
-    const center = { lat: 43.6532, lng: -79.3832 }
+    // const { isLoaded } = useJsApiLoader({
+    //     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    // })    
+    // if (!isLoaded) {
+    //     return <div>Loading...</div>
+    // }
 
     const handleQuerySubmit = (type, mood) => {
         setRestaurants(["finding your next dinner..."])
@@ -29,9 +30,8 @@ const Home = () => {
                 console.log(json)
             }
         }
-        fetchRestaurants()
+        fetchRestaurants()        
     }
-
     return (
         <div className="container">
             <RestaurantForm onSubmit={handleQuerySubmit} />
@@ -41,9 +41,12 @@ const Home = () => {
                     <p>{r}</p>
                 ))}
             </div>
-            <GoogleMap center={center} zoom={15} mapContainerStyle={{width: '500px', height: '500px'}}>
-                <div>Map</div>
-            </GoogleMap>
+            <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
+                <Map className="google-api-map" center={center} zoom={10}>
+                    <Marker position={center}></Marker>
+                </Map>
+            </APIProvider>
+            {/* <GoogleMap center={center} zoom={15} mapContainerStyle={{width: '500px', height: '500px'}} /> */}
         </div>
     )
 }
