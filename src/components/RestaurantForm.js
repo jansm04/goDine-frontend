@@ -10,7 +10,7 @@ const RestaurantForm = ({ onSubmit }) => {
         "Italian",
         "Greek",
         "Mexican",
-        "Canadian"
+        "Steakhouse"
     ]
     // restaurant moods
     const moods = [
