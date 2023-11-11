@@ -6,15 +6,6 @@ const Home = () => {
     const [type, setType] = useState("Italian") // type of restaurant
     const [mood, setMood] = useState("Casual") // restaurant mood (casual, fancy, etc.)
 
-    const fetchRestaurants = async () => {
-        // fetch array of restaurants from OpenAI API
-        const response = await fetch(`http://localhost:4000/api/call?type=${type}&mood=${mood}`)
-        const json = await response.json();
-        if (response.ok) {
-            setRestaurants(json);
-        }
-    }
-
     // types of cuisine
     const types = [
         "Italian",
@@ -38,14 +29,23 @@ const Home = () => {
         setMood(event.target.value)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        // fetch array of restaurants from OpenAI API
+        const fetchRestaurants = async () => {
+            const response = await fetch(`http://localhost:4000/api/call?type=${type}&mood=${mood}`)
+            const json = await response.json();
+            if (response.ok) {
+                setRestaurants(json);
+            }
+        }
         fetchRestaurants()
     }
 
     return (
         <div className="container">
             <div className="res-form">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h2 className="search-header">What are you looking for?</h2>
                     <label>Cuisine</label>
                     <select value={type} className="type-select" onChange={handleTypeSelect}>
@@ -59,11 +59,15 @@ const Home = () => {
                             <option>{m}</option>
                         ))}
                     </select>
-                    <button onSubmit={handleSubmit}>Find</button>
+                    <button>Find</button>
                 </form>
             </div>
             <div className="data">
-                <h2>{restaurants ? restaurants : "Loading..."}</h2>
+                <h2> Restaurants:
+                    {restaurants && restaurants.map(r => (
+                        <p>{r}</p>
+                    ))}
+                </h2>
             </div>
         </div>
     )
