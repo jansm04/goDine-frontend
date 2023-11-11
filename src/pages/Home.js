@@ -1,11 +1,21 @@
 import { useState } from "react"
 
+import { useJsApiLoader, GoogleMap } from "@react-google-maps/api"
+
 // components
 import RestaurantForm from "../components/RestaurantForm"
 
 const Home = () => {
 
     const [restaurants, setRestaurants] = useState(null)
+    const {isLoaded} = useJsApiLoader({
+        googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY
+    })
+    if (!isLoaded) {
+        console.log("Error: Google Maps API key has not been loaded.")
+        return
+    }
+    const center = { lat: 43.6532, lng: -79.3832 }
 
     const handleQuerySubmit = (type, mood) => {
         setRestaurants(["finding your next dinner..."])
@@ -31,6 +41,9 @@ const Home = () => {
                     <p>{r}</p>
                 ))}
             </div>
+            <GoogleMap center={center} zoom={15} mapContainerStyle={{width: '500px', height: '500px'}}>
+                <div>Map</div>
+            </GoogleMap>
         </div>
     )
 }
