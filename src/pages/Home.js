@@ -9,7 +9,7 @@ import Locations from "../components/Locations"
 const Home = () => {
 
     const [restaurants, setRestaurants] = useState(null)
-    const center = { lat: 43.6532, lng: -79.3832 }
+    const center = { lat: 43.6632, lng: -79.3832 }
     
     const handleQuerySubmit = (type, mood) => {
         setRestaurants([
@@ -41,7 +41,7 @@ const Home = () => {
             </div>
             <div className="google-map">
                 <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-                    <Map className="google-api-map" center={center} zoom={10} disableDefaultUI={true}>
+                    <Map className="google-api-map" center={center} zoom={11} disableDefaultUI={true} mapId={'adv-marker'}>
                         {restaurants && restaurants.map((r) => (
                             <Locations restaurant={r} />
                         ))}
