@@ -9,8 +9,8 @@ const Locations = ({ restaurant }) => {
 
     // restaurant location
     const pos = { 
-        lat: restaurant.position.latitude, 
-        lng: restaurant.position.longitude
+        lat: restaurant.location.latitude, 
+        lng: restaurant.location.longitude
     }
     return (
         <Marker position={pos} />
