@@ -4,14 +4,20 @@ import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps"
 
 // components
 import RestaurantForm from "../components/RestaurantForm"
+import PlaceDetails from "../components/PlaceDetails"
 
 const Home = () => {
 
     const center = useMemo(() => ({ lat: 43.6532, lng: -79.3832 }), [])
     const [restaurants, setRestaurants] = useState(null)
 
+    
     const handleQuerySubmit = (type, mood) => {
-        setRestaurants(["finding your next dinner..."])
+        setRestaurants([
+            {
+                id: "loading",
+                displayName: {text: "finding your next dinner..."}
+            }])
 
         // fetch array of restaurants from OpenAI API
         const fetchRestaurants = async () => {
@@ -22,15 +28,16 @@ const Home = () => {
                 console.log(json)
             }
         }
-        fetchRestaurants()        
+        fetchRestaurants() 
     }
+
     return (
         <div className="container">
             <RestaurantForm onSubmit={handleQuerySubmit} />
             <div className="data">
                 <h2> Restaurants: </h2>
-                {restaurants && restaurants.map(r => (
-                    <p>{r}</p>
+                {restaurants && restaurants.map((r) => (
+                    <PlaceDetails restaurant={r}/>
                 ))}
             </div>
             <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
