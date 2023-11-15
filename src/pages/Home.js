@@ -1,6 +1,4 @@
-import { useState, useMemo } from "react"
-
-import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps"
+import { useState } from "react"
 
 // components
 import RestaurantForm from "../components/RestaurantForm"
@@ -8,7 +6,6 @@ import PlaceDetails from "../components/PlaceDetails"
 
 const Home = () => {
 
-    const center = useMemo(() => ({ lat: 43.6532, lng: -79.3832 }), [])
     const [restaurants, setRestaurants] = useState(null)
 
     
@@ -40,11 +37,6 @@ const Home = () => {
                     <PlaceDetails restaurant={r}/>
                 ))}
             </div>
-            <APIProvider apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-                <Map className="google-api-map" center={center} zoom={10}>
-                    <Marker position={center}></Marker>
-                </Map>
-            </APIProvider>
         </div>
     )
 }
