@@ -1,33 +1,109 @@
+html {
+  height: 100%;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  margin: 0;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* .google-api-map {
-  width: 400px;
-  height: 300px;
-} */
 
 .container {
   display: grid;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 35% 65%;
+  height: 100vh;
+}
+
+.res-form {
+  background-color: rgb(34, 34, 33);
+  padding: 1rem;
+}
+
+.res-form .header-link {
+  text-decoration: none;
+  font-style: italic;
+  text-align: center;
+  color: rgb(198, 219, 229);
+}
+
+.res-form .form {
+  padding-right: 10px;
+  margin-top: 45%;
+  text-align: center;
+}
+
+.res-form .form .search-header {
+  color: rgb(198, 219, 229);
+  margin-bottom: 50px;
+}
+
+.res-form .form .cuisine-type, .mood-type {
+  margin-bottom: 10px;
+}
+
+
+.res-form .form .cuisine-type label, .mood-type label {
+  margin-right: 4px;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: bold;
+  color: rgb(198, 219, 229);
+}
+
+.res-form .form .form-select {
+  display: inline;
+  color: #000000;
+  background-color: #d2deec;
+  padding: 10px;
+  font-size: 15px;
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.res-form .form button {
+  margin-top: 45px;
+  width: 50%;
+  padding: 5px 20px;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  color: #000000;
+  background-color: rgb(237, 237, 237);
+}
+
+.res-form .form button:hover {
+  background-color: rgb(190, 236, 252);
+}
+
+
+.container .data {
+  background-color: rgb(190, 236, 252);
+  padding: 5rem;
+}
+
+.container .data .place-details {
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 .footer {
   padding: 10px;
   position: fixed;
+  height: fit-content;
   left: 0;
   bottom: 0;
   width: 100%;
-  /* background-color: rgb(235, 238, 238); */
   color: rgb(0, 0, 0);
   text-align: center;
 }

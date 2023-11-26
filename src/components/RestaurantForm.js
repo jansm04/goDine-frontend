@@ -38,20 +38,24 @@ const RestaurantForm = ({ onSubmit }) => {
     return (
         <div className="res-form">
             <Navbar />
-            <form onSubmit={handleSubmit}>
-                <h2 className="search-header">What are you looking for?</h2>
-                <label>Cuisine</label>
-                <select value={type} className="type-select" onChange={handleTypeSelect}>
-                    {types.map(t => (
-                        <option>{t}</option>
-                    ))}
-                </select>
-                <label>Mood</label>
-                <select value={mood} className="mood-select" onChange={handleMoodSelect}>
-                    {moods.map(m => (
-                        <option>{m}</option>
-                    ))}
-                </select>
+            <form className="form" onSubmit={handleSubmit}>
+                <h2 className="search-header">What are you craving?</h2>
+                <div className="cuisine-type">
+                    <label>Cuisine</label>
+                    <select value={type} className="form-select" onChange={handleTypeSelect}>
+                        {types.map(t => (
+                            <option>{t}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className="mood-type">
+                    <label>Mood</label>
+                    <select value={mood} className="form-select" onChange={handleMoodSelect}>
+                        {moods.map(m => (
+                            <option>{m}</option>
+                        ))}
+                    </select>
+                </div>
                 <button>Find</button>
             </form>
         </div>

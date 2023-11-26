@@ -4,7 +4,7 @@ const PlaceDetails = ({ restaurant }) => {
 
     if (restaurant && restaurant.id === "loading") {
         return (
-            <div className="place-details">
+            <div className="place-details-loading">
                 <p>{restaurant.displayName.text}</p>
             </div>
         )
