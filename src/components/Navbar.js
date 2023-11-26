@@ -7,6 +7,9 @@ const Navbar = () => {
                 <Link className="header-link" to="/">
                     <h1>goDine</h1>
                 </Link>
+                <div className='slogan'>
+                    <p>Let AI help you decide where to eat.</p>
+                </div>
             </div>
         </header>
     )
