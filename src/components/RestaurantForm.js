@@ -4,21 +4,37 @@ import Navbar from './Navbar';
 
 const RestaurantForm = ({ onSubmit }) => {
 
+    const [city, setCity] = useState("Toronto") // city
     const [type, setType] = useState("Italian") // type of restaurant
     const [mood, setMood] = useState("Casual") // restaurant mood (casual, fancy, etc.)
+    
+    // citites
+    const cities = [
+        "Toronto",
+        "Vancouver",
+        "Montreal"
+    ]
 
     // types of cuisine
     const types = [
         "Italian",
         "Greek",
         "Mexican",
-        "Steakhouse"
+        "Japanese",
+        "Indian",
+        "Steakhouse",
+        "Pizza"
     ]
     // restaurant moods
     const moods = [
         "Casual",
         "Fancy"
     ]
+
+    // set cuisine type on selection
+    const handleCitySelect = (event) => {
+        setCity(event.target.value)
+    }
 
     // set cuisine type on selection
     const handleTypeSelect = (event) => {
@@ -32,7 +48,7 @@ const RestaurantForm = ({ onSubmit }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        onSubmit(type, mood)
+        onSubmit(city, type, mood)
     }
 
     return (
@@ -40,6 +56,14 @@ const RestaurantForm = ({ onSubmit }) => {
             <Navbar />
             <form className="form" onSubmit={handleSubmit}>
                 <h2 className="search-header">What are you craving?</h2>
+                <div className="city-type">
+                    <label>City</label>
+                    <select value={city} className="form-select" onChange={handleCitySelect}>
+                        {cities.map(c => (
+                            <option>{c}</option>
+                        ))}
+                    </select>
+                </div>
                 <div className="cuisine-type">
                     <label>Cuisine</label>
                     <select value={type} className="form-select" onChange={handleTypeSelect}>
