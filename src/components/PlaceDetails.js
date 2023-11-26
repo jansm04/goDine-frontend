@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
+
 const PlaceDetails = ({ restaurant }) => {
 
-    if (restaurant.id === "loading") {
+    if (restaurant && restaurant.id === "loading") {
         return (
             <div className="place-details">
                 <p>{restaurant.displayName.text}</p>
@@ -10,7 +12,9 @@ const PlaceDetails = ({ restaurant }) => {
  
     return (
         <div className="place-details">
-            <p>{restaurant.displayName.text} ({restaurant.rating})</p>
+            <Link to={restaurant.websiteUri}>{restaurant.displayName.text}</Link>
+            <p>Rating: {restaurant.rating}</p>
+            <p>Address: {restaurant.formattedAddress}</p>
         </div> 
     )
 }
