@@ -37,7 +37,7 @@ body {
 
 .res-form .form {
   padding-right: 10px;
-  margin-top: 37.5%;
+  margin-top: 34%;
   text-align: center;
 }
 
@@ -46,12 +46,12 @@ body {
   margin-bottom: 50px;
 }
 
-.res-form .form .cuisine-type, .mood-type {
+.res-form .form .city-type, .cuisine-type, .mood-type {
   margin-bottom: 10px;
 }
 
 
-.res-form .form .cuisine-type label, .mood-type label {
+.res-form .form .city-type label, .cuisine-type label, .mood-type label {
   margin-right: 4px;
   font-size: 18px;
   font-style: italic;
@@ -101,7 +101,7 @@ body {
   color: #282e30;
   font-style: italic;
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .container .data .place-details {
