@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import Navbar from './Navbar';
+
 const RestaurantForm = ({ onSubmit }) => {
 
     const [type, setType] = useState("Italian") // type of restaurant
@@ -35,6 +37,7 @@ const RestaurantForm = ({ onSubmit }) => {
 
     return (
         <div className="res-form">
+            <Navbar />
             <form onSubmit={handleSubmit}>
                 <h2 className="search-header">What are you looking for?</h2>
                 <label>Cuisine</label>
