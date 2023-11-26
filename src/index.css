@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,7 +11,33 @@ code {
     monospace;
 }
 
-.google-api-map {
-  width: 500px;
-  height: 500px;
+/* .google-api-map {
+  width: 400px;
+  height: 300px;
+} */
+
+.container {
+  display: grid;
+  grid-template-columns: 25% 75%;
 }
+
+.footer {
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* background-color: rgb(235, 238, 238); */
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.footer .signature {
+  display: inline;
+  padding: 10px;
+}
+
+.footer .gh-link {
+  display: inline;
+}
+
