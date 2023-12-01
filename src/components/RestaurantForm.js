@@ -12,7 +12,11 @@ const RestaurantForm = ({ onSubmit }) => {
     const cities = [
         "Toronto",
         "Vancouver",
-        "Montreal"
+        "Montreal",
+        "Calgary",
+        "Winnipeg",
+        "Ottawa",
+        "Edmonton"
     ]
 
     // types of cuisine
