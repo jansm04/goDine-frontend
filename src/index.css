@@ -14,7 +14,7 @@ body {
   display: grid;
   grid-template-columns: 35% 65%;
   grid-template-rows: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .res-form {
@@ -73,6 +73,7 @@ body {
 
 .res-form .form button {
   margin-top: 45px;
+  margin-bottom: 45%;
   width: 50%;
   padding: 5px 20px;
   font-size: 15px;
@@ -102,6 +103,10 @@ body {
   font-style: italic;
   margin-top: 40px;
   margin-bottom: 60px;
+}
+
+.container .data-content {
+  margin-bottom: 15%;
 }
 
 .container .data .place-details {
