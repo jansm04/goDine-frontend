@@ -13,6 +13,7 @@ body {
 .container {
   display: grid;
   grid-template-columns: 35% 65%;
+  grid-template-rows: 100%;
   height: 100vh;
 }
 
@@ -29,7 +30,6 @@ body {
 }
 
 .res-form .slogan {
-  font-style: italic;
   font-size: 15px;
   text-align: center;
   color: rgb(183, 173, 122);
@@ -147,3 +147,54 @@ body {
   text-decoration: none;
 }
 
+
+@media only screen and (max-width: 800px) {
+  .container {
+    display: block;
+  }
+
+  .res-form {
+    width: 100%;
+  }
+
+  .res-form .form {
+    margin-top: 60px;
+  }
+
+  .res-form .form .search-header {
+    margin-bottom: 40px;
+    font-size: 28px;
+  }  
+  
+  .res-form .form .city-type label, .cuisine-type label, .mood-type label {
+    font-size: 20px;
+  }
+  
+  .res-form .form .form-select {
+    font-size: 18px;
+  }
+
+  .res-form .form button {
+    margin-bottom: 45px;
+    width: 40%;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .container .data {
+    background-color: rgb(218, 208, 160);
+    padding: 5rem;
+    height: 100%;
+    max-height: fit-content;
+    min-height: 50%;
+  }
+
+  .container .data .data-header {
+    margin-top: 0px;
+    font-size: 30px;
+  }
+  
+  .container .data-content {
+    margin-bottom: 45px;
+  }
+}
