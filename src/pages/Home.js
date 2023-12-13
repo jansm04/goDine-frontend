@@ -40,9 +40,11 @@ const Home = () => {
             <RestaurantForm onSubmit={handleQuerySubmit} />
             <div className="data">
                 <h2 className="data-header"> Your Top Choices: </h2>
-                {restaurants && restaurants.map((r) => (
-                    <PlaceDetails restaurant={r}/>
-                ))}
+                <div className="data-content">
+                    {restaurants && restaurants.map((r) => (
+                        <PlaceDetails restaurant={r}/>
+                    ))}
+                </div>
             </div>
             {/* <RestaurantMap restaurants={restaurants} /> */}
         </div>
